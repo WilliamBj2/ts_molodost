@@ -1,7 +1,8 @@
 import React from 'react';
 import './style.css';
 
-import {sldrCompType, SliderComp} from '../tools/slider'
+import { sldrCompType, SliderComp } from '../tools/slider'
+import { TitleComp } from '../tools/title'
 
 const FirstSlideComp: React.FunctionComponent = () => {
 
@@ -13,7 +14,13 @@ const FirstSlideComp: React.FunctionComponent = () => {
     ]
 
     return <div className="main_slide" id="main_slide_1">
-        <SliderComp sliderType={ sldrCompType.HSlider } sliderName="nestedSlider1">
+        <div className="main_slide_title" style={{zIndex: 101}}>
+            <TitleComp textWithColor={[
+                { text: "MOLODOST", color: "white" },
+                { text: "'", color: "yellow" }
+            ]} />
+        </div>
+        <SliderComp sliderType={ sldrCompType.HSlider }>
             {
                 nestedSlides.map((slide, index) => {
                     return <div id={slide.id} className="nested_1" key={index}></div>
