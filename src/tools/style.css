@@ -1,0 +1,47 @@
+/* ------------------------------------------------- */
+/* SliderComp */
+/* ------------------------------------------------- */
+.slider_screen {
+    height: 100%;
+    position: relative;
+}
+
+/* ------------------------------------------------- */
+/* SliderComp_item */
+/* ------------------------------------------------- */
+.slider_item {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.v_item {
+    top: 100%;
+    left: 0;
+}
+.h_item {
+    top: 0;
+    left: 100%;
+}
+
+/* ------------------------------------------------- */
+/* SliderComp_navigation */
+/* ------------------------------------------------- */
+.slider_v_nav {
+    display: none;
+}
+
+.slider_h_nav {
+    height: 100%;
+    width: 35px;
+    position: absolute;
+
+    background: white;
+    filter: opacity(0.25);
+    transition: 1s;
+}
+.slider_h_nav:hover {
+    filter: opacity(0.5);
+}
+
+.h_pred { left: 0; }
+.h_next { right: 0; }

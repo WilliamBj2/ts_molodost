@@ -1,0 +1,51 @@
+.main_slide {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #181818;
+}
+
+/* ------------------------------------------------- */
+/* FirstSlideComp */
+/* ------------------------------------------------- */
+.nested_1 {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #181818;
+}
+
+#nested_1_1 {
+    background-image: url(../img/nested_1_1.png);
+}
+#nested_1_2 {
+    background-image: url(../img/nested_1_2.png);
+}
+#nested_1_3 {
+    background-image: url(../img/nested_1_3.png);
+}
+#nested_1_4 {
+    background-image: url(../img/nested_1_4.png);
+}
+
+/* ------------------------------------------------- */
+/* SecondSlideComp */
+/* ------------------------------------------------- */
+#main_slide_2 {
+    background-image: url(../img/main_slide_2.png);
+}
+
+/* ------------------------------------------------- */
+/* ThirdSlideComp */
+/* ------------------------------------------------- */
+#main_slide_3 {
+    background-image: url(../img/main_slide_3.png);
+}

@@ -1,8 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './style.css';
+
+import FirstSlideComp from "./slides/slide_1";
+import SecondSlideComp from "./slides/slide_2";
+import ThirdSlideComp from "./slides/slide_3";
+
+import { SliderComp, sldrCompType } from "./tools/slider"
+
+function App() {
+    return <div className="app">
+        <SliderComp sliderType={ sldrCompType.VSlider } sliderName={"mainSlider"}>
+            <FirstSlideComp />
+            <SecondSlideComp />
+            <ThirdSlideComp />
+        </SliderComp>
+    </div>
+}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,8 +24,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
