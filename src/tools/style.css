@@ -14,34 +14,39 @@
     width: 100%;
     position: absolute;
 }
-.v_item {
-    top: 100%;
-    left: 0;
-}
-.h_item {
-    top: 0;
-    left: 100%;
+.slider_item_center { left: 0; top: 0; }
+
+.slider_item_left { left: -100%; }
+.slider_item_right { left: 100%; }
+
+.slider_item_top { top: -100%; }
+.slider_item_bottom { top: 100%; }
+
+.slider_animation {
+    transition-duration: 1s;
+    transition-property: left, top;
 }
 
 /* ------------------------------------------------- */
 /* SliderComp_navigation */
 /* ------------------------------------------------- */
-.slider_v_nav {
-    display: none;
-}
-
-.slider_h_nav {
-    height: 100%;
-    width: 35px;
+.slider_nav {
     position: absolute;
+    z-index: 500;
 
-    background: white;
-    filter: opacity(0.25);
     transition: 1s;
+    filter: opacity(0.25);
+    background: white;
 }
-.slider_h_nav:hover {
+.slider_nav:hover {
     filter: opacity(0.5);
 }
 
-.h_pred { left: 0; }
-.h_next { right: 0; }
+.v_nav { display: none; }
+.h_nav {
+    height: 100%;
+    width: 35px;
+}
+
+.h_nav_pred { left: 0; }
+.h_nav_next { right: 0; }
