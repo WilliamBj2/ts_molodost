@@ -10,7 +10,7 @@ import { SliderComp, sldrCompType } from "./tools/slider"
 
 function App() {
     return <div className="app">
-        <SliderComp sliderType={ sldrCompType.VSlider } sliderName={"mainSlider"}>
+        <SliderComp sliderType={ sldrCompType.VSlider }>
             <FirstSlideComp />
             <SecondSlideComp />
             <ThirdSlideComp />
