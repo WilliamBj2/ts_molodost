@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './style.css';
 
 /*--------------------------------------------------------------------------------------------------*/
 
 enum sldrCompType { VSlider = "VSlider", HSlider = "HSlider" }
+
 enum sldrCompBtn { BtnPred = "Pred", BtnNext = "Next" }
 
 type sldrCompProp = { sliderType: sldrCompType }
@@ -41,45 +42,47 @@ const SliderComp: React.FunctionComponent<sldrCompProp> = (props) => {
         }
     }
 
-    useEffect(() => { inUpdProc = false }, [])
+    useEffect(() => {
+        inUpdProc = false
+    }, [])
 
-    return <div className="slider_screen" onTransitionEnd={() => { inUpdProc = false }}
-                onWheel = { (event) => {
+    return <div className="slider_screen"
+                onWheel={(event) => {
                     if (inUpdProc || props.sliderType !== sldrCompType.VSlider) return
                     btnProcessor((event.nativeEvent.deltaY > 0) ? sldrCompBtn.BtnNext : sldrCompBtn.BtnPred)
-                }}>
+                }}
+                onTransitionEnd={() => {
+                    inUpdProc = false
+                }}
+    >
         {
             React.Children.map(props.children, (item, index) => {
-                if (index === itemNum) {
-                    return <div className="slider_item slider_item_center slider_animation">{ item }</div>
-                }
+                if (index === itemNum) return <div className="slider_item slider_animation">{item}</div>
                 else {
-                    switch(sldrBtn) {
+                    switch (sldrBtn) {
                         case sldrCompBtn.BtnPred: {
-                            if (index < itemNum) return <div className={sldrItemBefore}>{ item }</div>
-                            else if (index === (itemNum + 1)) {
-                                return <div className={sldrItemAfter + " slider_animation"}>{ item }</div>
-                            }
-                            else return <div className={sldrItemAfter}>{ item }</div>
+                            if (index < itemNum) return <div className={sldrItemBefore}>{item}</div>
+                            else return <div
+                                className={sldrItemAfter + (index === (itemNum + 1) ? " slider_animation" : "")}>{item}</div>
                         }
                         case sldrCompBtn.BtnNext: {
-                            if (index > itemNum) return <div className={sldrItemAfter}>{ item }</div>
-                            else if (index === (itemNum - 1)) {
-                                return <div className={sldrItemBefore + " slider_animation"}>{ item }</div>
-                            }
-                            else return <div className={sldrItemBefore}>{ item }</div>
+                            if (index > itemNum) return <div className={sldrItemAfter}>{item}</div>
+                            else return <div
+                                className={sldrItemBefore + (index === (itemNum - 1) ? " slider_animation" : "")}>{item}</div>
                         }
                     }
                 }
             })
         }
         <div
-            className={ sldrBtnPredStyleCls }
-            onClick={ () => { if (!inUpdProc) btnProcessor(sldrCompBtn.BtnPred) }}>
+            className={sldrBtnPredStyleCls} onClick={() => {
+            if (!inUpdProc) btnProcessor(sldrCompBtn.BtnPred)
+        }}>
         </div>
         <div
-            className={ sldrBtnNextStyleCls }
-            onClick={ () => { if (!inUpdProc) btnProcessor(sldrCompBtn.BtnNext) }}>
+            className={sldrBtnNextStyleCls} onClick={() => {
+            if (!inUpdProc) btnProcessor(sldrCompBtn.BtnNext)
+        }}>
         </div>
     </div>
 }
@@ -190,4 +193,4 @@ const SliderComp: React.FunctionComponent<sldrCompProp> = (props) => {
     </div>
 } */
 
-export { sldrCompType, SliderComp }
+export {sldrCompType, SliderComp}

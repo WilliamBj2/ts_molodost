@@ -1,25 +1,26 @@
 @font-face {
-  font-family: 'GOST type A';
-  src: url('./fonts/TypeA/gost_type_a.svg'); /* IE 9 Compatibility Mode */
-  src: url('./fonts/TypeA/gost_type_a.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
-  url('./fonts/TypeA/gost_type_a.woff2') format('woff2'), /* Super Modern Browsers */
-  url('./fonts/TypeA/gost_type_a.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
-  url('./fonts/TypeA/gost_type_a.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('./fonts/TypeA/gost_type_a.svg#gost_type_a') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-family: 'GOST type A';
+    src: url('./fonts/TypeA/gost_type_a.svg'); /* IE 9 Compatibility Mode */
+    src: url('./fonts/TypeA/gost_type_a.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('./fonts/TypeA/gost_type_a.woff2') format('woff2'), /* Super Modern Browsers */
+    url('./fonts/TypeA/gost_type_a.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('./fonts/TypeA/gost_type_a.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('./fonts/TypeA/gost_type_a.svg#gost_type_a') format('svg'); /* Chrome < 4, Legacy iOS */
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
 body {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 /* ------------------------------------------------- */
 /* App */
 /* ------------------------------------------------- */
 .app {
-  height: 100vh;
+    height: 100vh;
 }

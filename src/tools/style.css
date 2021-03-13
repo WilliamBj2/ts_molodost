@@ -13,12 +13,12 @@
     height: 100%;
     width: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
 }
-.slider_item_center { left: 0; top: 0; }
 
 .slider_item_left { left: -100%; }
 .slider_item_right { left: 100%; }
-
 .slider_item_top { top: -100%; }
 .slider_item_bottom { top: 100%; }
 
@@ -38,15 +38,16 @@
     filter: opacity(0.25);
     background: white;
 }
+
 .slider_nav:hover {
     filter: opacity(0.5);
 }
 
 .v_nav { display: none; }
+
 .h_nav {
     height: 100%;
     width: 35px;
 }
-
 .h_nav_pred { left: 0; }
 .h_nav_next { right: 0; }

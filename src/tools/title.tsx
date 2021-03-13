@@ -10,7 +10,7 @@ export const TitleComp: React.FunctionComponent<titleProps> = (props) => {
             props.textWithColor.map((textItem) => {
                 return <span style={
                     {color: textItem.color, textShadow: "0 0 17px " + textItem.color}
-                }>{ textItem.text }</span>
+                }>{textItem.text}</span>
             })
         }
     </div>
