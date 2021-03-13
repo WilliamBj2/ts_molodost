@@ -7,8 +7,7 @@ const SecondSlideComp: React.FunctionComponent = () => {
     return <div className="main_slide" id="main_slide_2">
         <div className="main_slide_title" style={{zIndex: 201}}>
             <TitleComp textWithColor={[
-                { text: "О", color: "yellow" },
-                { text: " нас", color: "white" }
+                { text: "О", color: "yellow" }, { text: " нас", color: "white" }
             ]} />
         </div>
     </div>

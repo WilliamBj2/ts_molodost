@@ -6,9 +6,6 @@ import './style.css';
 enum sldrCompType { VSlider = "VSlider", HSlider = "HSlider" }
 enum sldrCompBtn { BtnPred = "Pred", BtnNext = "Next" }
 
-/* type sldrCompProp = {
-    sliderType: sldrCompType, sliderName: string
-} */
 type sldrCompProp = { sliderType: sldrCompType }
 
 /*--------------------------------------------------------------------------------------------------*/
@@ -88,7 +85,11 @@ const SliderComp: React.FunctionComponent<sldrCompProp> = (props) => {
 }
 
 
-/* const SliderComp: React.FunctionComponent<sldrCompProp> = (props) => {
+/* type sldrCompProp = {
+    sliderType: sldrCompType, sliderName: string
+}
+
+const SliderComp: React.FunctionComponent<sldrCompProp> = (props) => {
 
     const itemSet: HTMLCollectionOf<Element> = document.getElementsByClassName(props.sliderName)
     let btnPredClass: string, btnNextClass: string
