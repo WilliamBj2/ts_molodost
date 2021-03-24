@@ -1,8 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './style.css';
 
 import {sldrCompType, SliderComp} from '../tools/slider'
 import {TitleComp} from '../tools/title'
+
+type firstSlideContentProp = {
+    title: string, src: string, desc: string
+}
+
+const FirstSlideContentComp: React.FunctionComponent<firstSlideContentProp> = (props) => {
+    return <div className="first_content">
+        <div className="first_content_video">
+            <div style={{height: "0", paddingTop: "56.25%"}}>
+                <iframe src={props.src} title={props.title} frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen />
+            </div>
+            <div style={{flexGrow: 1, border: "2px solid white"}} />
+        </div>
+        <div className="first_content_desc">
+        </div>
+    </div>
+}
 
 const FirstSlideComp: React.FunctionComponent = () => {
 
@@ -22,7 +41,9 @@ const FirstSlideComp: React.FunctionComponent = () => {
         <SliderComp sliderType={sldrCompType.HSlider}>
             {
                 nestedSlides.map((slide, index) => {
-                    return <div id={slide.id} className="nested_1" key={index}/>
+                    return <div id={slide.id} className="nested_1" key={index}>
+                        <FirstSlideContentComp title={slide.title} src={slide.src} desc={""} />
+                    </div>
                 })
             }
         </SliderComp>

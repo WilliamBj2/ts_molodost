@@ -70,3 +70,59 @@
     font-family: "GOST type A";
     font-size: 12.5vh;
 }
+
+/* ------------------------------------------------- */
+/* FirstSlideContentComp */
+/* ------------------------------------------------- */
+.first_content {
+    height: 65vh;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 17.5vh;
+}
+.first_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first_content_video {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid orange;
+}
+.first_content_video > iframe {
+    height: 100%;
+    width: 100%;
+    border: 2px solid yellow;
+}
+
+@media (min-width: 720px) {
+    .first_content {
+        width: calc(100% - 80px);
+        max-width: 1360px;
+        flex-direction: row;
+    }
+    .first_content_video { width: 61%; }
+    .first_content_desc { width: 36%; }
+}
+
+@media (max-width: 720px) {
+    .first_content {
+        width: calc(100% - 80px);
+        flex-direction: column;
+    }
+    .first_content_video { width: 100%; }
+    .first_content_desc { width: 100%; }
+}
+
+.first_content { border: 2px solid red; }
+.first_content_video { border: 2px solid green; }
+.first_content_desc { border: 2px solid blue; }
+
+
+
+
+
+
+
