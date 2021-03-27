@@ -10,15 +10,15 @@ type firstSlideContentProp = {
 
 const FirstSlideContentComp: React.FunctionComponent<firstSlideContentProp> = (props) => {
     return <div className="first_content">
-        <div className="first_content_video">
-            <div style={{height: "0", paddingTop: "56.25%"}}>
-                <iframe src={props.src} title={props.title} frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen />
+        <div className="content_block">
+            <div className="content_video">
+                <div className="video_block">
+                    <iframe src={props.src} title={props.title} frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen />
+                </div>
             </div>
-            <div style={{flexGrow: 1, border: "2px solid white"}} />
-        </div>
-        <div className="first_content_desc">
+            <div className="content_desc"></div>
         </div>
     </div>
 }
