@@ -7,6 +7,49 @@ import {TitleComp} from '../tools/title'
 type firstSlideContentProp = {
     title: string, src: string, desc: string
 }
+type firstContentDescProp = { desc: string }
+
+function updateFontSize() {
+
+    const elemColl = document.getElementsByClassName("first_content_desc");
+    let descHeight_source: number, descHeight_new: number;
+
+    for (let i = 0; i < elemColl.length; i++)
+    {
+        let fontSMin = 8, fontSMax = 64, fontS = fontSMax;
+        let el: HTMLElement = elemColl[i] as HTMLElement;
+
+        // устанавливаем минимальный размер шрифта и фиксируем текущий размер блока
+        el.style.fontSize = (0).toString() + "px";
+        descHeight_source = Number(window.getComputedStyle(el).height.slice(0, -2));
+
+        do {
+            // вычисляем среднее значение размера шрифта и реагируем на изменения
+            el.style.fontSize = ((fontSMin + fontSMax) / 2).toString() + "px";
+            descHeight_new = Number(window.getComputedStyle(el).height.slice(0, -2));
+
+            if (Math.abs(descHeight_source - descHeight_new) > 0.0001)
+            {
+                fontSMax = (fontSMin + fontSMax) / 2
+            }
+            else fontSMin = (fontS = (fontSMin + fontSMax) / 2)
+        }
+        while (Math.abs(fontSMin - fontSMax) > 1);
+
+        // устанавливаем последний, не ломающий верстку, размер шрифта
+        el.style.fontSize = fontS.toString() + "px";
+    }
+}
+
+const FirstContentDesc: React.FunctionComponent<firstContentDescProp> = ({desc}) => {
+
+    useEffect(() => {
+        window.addEventListener('resize', updateFontSize);
+        updateFontSize();
+        return () => window.removeEventListener('resize', updateFontSize);
+    }, []);
+    return <div className="first_content_desc">{desc}</div>
+}
 
 const FirstSlideContentComp: React.FunctionComponent<firstSlideContentProp> = (props) => {
     return <div className="first_content">
@@ -18,7 +61,7 @@ const FirstSlideContentComp: React.FunctionComponent<firstSlideContentProp> = (p
                             allowFullScreen />
                 </div>
             </div>
-            <div className="first_content_desc">{props.desc}</div>
+            <FirstContentDesc desc={props.desc} />
         </div>
     </div>
 }
@@ -37,10 +80,6 @@ const FirstSlideComp: React.FunctionComponent = () => {
         {
             id: "nested_1_3", title: "RETRO MODERN BATTLE", src: "https://www.youtube.com/embed/Nw0pJkZ7a2g",
             desc: "Выбор подписчиков - Retro Modern Battle Comeback.\nВремя всегда было относительным понятием. Мы ностальгируем по прошлому, с теплотой вспоминая все лучшее. Но если на секунду представить, что два поколения соединятся? Retro и Modern. Что получится? Вы узнаете в клипе Retro Modern Battle!"
-        },
-        {
-            id: "nested_1_4", title: "LIGHT A FIRE", src: "https://www.youtube.com/embed/2NVCSJguzso",
-            desc: ""
         }
     ]
 
@@ -58,6 +97,7 @@ const FirstSlideComp: React.FunctionComponent = () => {
                     </div>
                 })
             }
+            <div id="nested_1_4" className="nested_1" />
         </SliderComp>
     </div>
 }
