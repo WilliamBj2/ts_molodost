@@ -5,9 +5,9 @@ import {sldrCompType, SliderComp} from '../tools/slider'
 import {TitleComp} from '../tools/title'
 
 type firstSlideContentProp = {
-    title: string, src: string, desc: string
+    title: string, src: string, desc: React.ReactElement
 }
-type firstContentDescProp = { desc: string }
+type firstContentDescProp = { desc: React.ReactElement }
 
 function updateFontSize() {
 
@@ -34,7 +34,7 @@ function updateFontSize() {
             }
             else fontSMin = (fontS = (fontSMin + fontSMax) / 2)
         }
-        while (Math.abs(fontSMin - fontSMax) > 1);
+        while (Math.abs(fontSMin - fontSMax) > 0.0001);
 
         // устанавливаем последний, не ломающий верстку, размер шрифта
         el.style.fontSize = fontS.toString() + "px";
@@ -45,8 +45,12 @@ const FirstContentDesc: React.FunctionComponent<firstContentDescProp> = ({desc})
 
     useEffect(() => {
         window.addEventListener('resize', updateFontSize);
-        updateFontSize();
-        return () => window.removeEventListener('resize', updateFontSize);
+        window.addEventListener('load', updateFontSize);
+        return () =>
+        {
+            window.removeEventListener('resize', updateFontSize);
+            window.removeEventListener('load', updateFontSize);
+        }
     }, []);
     return <div className="first_content_desc">{desc}</div>
 }
@@ -68,18 +72,18 @@ const FirstSlideContentComp: React.FunctionComponent<firstSlideContentProp> = (p
 
 const FirstSlideComp: React.FunctionComponent = () => {
 
-    const nestedSlides: { id: string, title: string, src: string, desc: string }[] = [
+    const nestedSlides: { id: string, title: string, src: string, desc: React.ReactElement }[] = [
         {
             id: "nested_1_1", title: "MIND GAMES", src: "https://www.youtube.com/embed/INx5hyVWUUc",
-            desc: "Новый клип - MIND GAMES. В жизни всегда есть место конкуренции. И казалось бы, заветный приз лежит уже перед носом, как понимаешь, что ты не единственный претендент на желанную сладость. Каждый ход оппонента воспринимается как немыслимая наглость! И зачастую, такая призма восприятия раскачивает лодку еще сильнее..."
+            desc: <span>Новый клип - MIND GAMES<br/>В жизни всегда есть место конкуренции. И казалось бы, заветный приз лежит уже перед носом, как понимаешь, что ты не единственный претендент на желанную сладость. Каждый ход оппонента воспринимается как немыслимая наглость! И зачастую, такая призма восприятия раскачивает лодку еще сильнее...</span>
         },
         {
             id: "nested_1_2", title: "MANIAC", src: "https://www.youtube.com/embed/UHkQHGiOD4Q",
-            desc: "Самый популярный клип - MANIAC.\nВ картине под музыку известного исполнителя GSPD раскрывается история двух судеб.  Действия разворачиваются в осеннем лесу, где неспеша прогуливается рассказчик. Как хранитель истории, он знает, что произойдет, но вмешиваться не в его власти..."
+            desc: <span>Самый популярный клип - MANIAC<br/>В картине под музыку известного исполнителя GSPD раскрывается история двух судеб.  Действия разворачиваются в осеннем лесу, где неспеша прогуливается рассказчик. Как хранитель истории, он знает, что произойдет, но вмешиваться не в его власти...</span>
         },
         {
             id: "nested_1_3", title: "RETRO MODERN BATTLE", src: "https://www.youtube.com/embed/Nw0pJkZ7a2g",
-            desc: "Выбор подписчиков - Retro Modern Battle Comeback.\nВремя всегда было относительным понятием. Мы ностальгируем по прошлому, с теплотой вспоминая все лучшее. Но если на секунду представить, что два поколения соединятся? Retro и Modern. Что получится? Вы узнаете в клипе Retro Modern Battle!"
+            desc: <span>Выбор подписчиков - Retro Modern Battle Comeback<br/>Время всегда было относительным понятием. Мы ностальгируем по прошлому, с теплотой вспоминая все лучшее. Но если на секунду представить, что два поколения соединятся? Retro и Modern. Что получится? Вы узнаете в клипе Retro Modern Battle!</span>
         }
     ]
 
