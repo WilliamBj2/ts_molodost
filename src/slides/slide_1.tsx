@@ -88,7 +88,7 @@ const FirstSlideComp: React.FunctionComponent = () => {
     ]
 
     return <div className="main_slide" id="main_slide_1">
-        <div className="main_slide_title" style={{zIndex: 101}}>
+        <div className="main_title_for_slider" style={{zIndex: 101}}>
             <TitleComp textWithColor={[
                 {text: "MOLODOST", color: "white"}, {text: "'", color: "yellow"}
             ]}/>

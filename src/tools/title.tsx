@@ -5,7 +5,7 @@ type titleProps = {
 }
 
 export const TitleComp: React.FunctionComponent<titleProps> = (props) => {
-    return <div className="title">
+    return <div className="main_title">
         {
             props.textWithColor.map((textItem) => {
                 return <span style={
