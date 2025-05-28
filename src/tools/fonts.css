@@ -1,0 +1,14 @@
+@font-face {
+   font-family: "RooftopBold";
+   src: url('RooftopBold.otf');
+}
+
+@font-face {
+   font-family: "RooftopMedium";
+   src: url('RooftopMedium.otf');
+}
+
+@font-face {
+   font-family: "RooftopRegular";
+   src: url('RooftopRegular.otf');
+}

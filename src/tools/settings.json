@@ -1,0 +1,80 @@
+{
+  "webchat": {
+    "uid": "8502b78282aea-54467e2d96fd2-56f4010f61402-a872bb55818a7",
+    "theme": {
+      "fonts": ["/fonts.css"],
+      "desktop": {
+        "Global": {
+          "fontFamily": "RooftopRegular",
+          "fontSize": "14px"
+        },
+        "ChatInput": {
+          "buttonsPlacement": [ [], ["emoji", "attach", "send"] ]
+        },
+        "QuickQuestions": {
+          "direction": "column",
+          "buttonFontFamily": "RooftopRegular",
+          "buttonFontSize": "14px",
+          "buttonFontWeight": "500",
+          "buttonBorderRadius": "15px",
+          "buttonMargin": "5px 0 0 0",
+          "buttonBackground": "#FFFFFF",
+          "buttonBorder": "1.5px solid #E2E2E9",
+          "buttonColor": "#171717",
+          "buttonBackgroundHover": "#171717",
+          "buttonBorderHover": "1.5px solid #171717",
+          "buttonColorHover": "#FFFFFF",
+          "buttonBackgroundActive": "#171717",
+          "buttonBorderActive": "1.5px solid #171717",
+          "buttonColorActive": "#FFFFFF"
+        }
+      }
+    },
+    "locale": "ru",
+    "locales": {
+      "ChatInput": {
+        "placeholder": {
+          "ru": "Напишите в чат, если не нашли ответа в FAQ"
+        }
+      }
+    },
+    "backend": {
+      "rootUrl": "https://eora.edna.ru/api",
+      "unauthorizedHistory": {
+        "count": 20,
+        "cookie": {
+          "Max-Age": 3600
+        },
+        "enable": true
+      }
+    },
+    "package": "EDNA_WI",
+    "clientId": "test_user-3",
+    "appMarker": "EDNA_WI",
+    "datastore": "https://eora.edna.ru/files",
+    "websocket": "wss://eora.edna.ru/socket",
+    "clientData": "clientData",
+    "hideWelcome": false,
+    "welcomeForm": {
+      "name": {
+        "visible": true,
+        "required": false
+      },
+      "email": {
+        "visible": true,
+        "required": false
+      },
+      "phone": {
+        "visible": true,
+        "required": false
+      }
+    },
+    "pushNotification": {
+      "enable": false
+    },
+    "enableVoiceMessages": false
+  },
+  "filename": "https://eora.edna.ru/widget/latest.js"
+}
+
+ 
